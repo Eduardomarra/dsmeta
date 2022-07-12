@@ -1,0 +1,15 @@
+header {
+    text-align: center;
+    background: linear-gradient(180deg, #102347 0%, #181818 100%);
+    padding: 1rem 0;
+}
+header h1 {
+    margin-top: 1rem;
+}
+header span a {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+header span a:hover {
+    filter: brightness(0.8);
+}
