@@ -1,0 +1,117 @@
+.card {
+    padding: 32px 10px;
+    background: #283142;
+    border-radius: 10px;
+}
+.card h2 {
+    color: #676FFF;
+    margin-bottom: 1rem;
+}
+.input-form {
+    margin-bottom: 2rem;
+}
+.input-form input {
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    color: #9AAABE;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    background-color: #1B2531;
+    border-radius: 8px;
+    border: 1px solid #384459;
+    display: flex;
+    align-items: center;
+    padding-left: 22px;
+    transition: all 0.3s;
+}
+.input-form input:focus {
+    outline: none;
+}
+.input-form input:focus::placeholder {
+    opacity: 0;
+}
+.input-form input:first-child {
+    margin-top: 1rem;
+
+}
+.input-form input::placeholder {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #9AAABE;
+}
+    /* SALES TABLE*/
+
+.sales-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+.sales-table thead {
+    height: 55px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+}
+.sales-table tbody {
+    font-size: 18px;
+    line-height: 21px;
+    color: #CFCFCF;
+}
+.sales-table tbody tr {
+    height: 62px;
+    border-top: 1px solid #5F6E82;
+    transition: all 0.3s;
+}
+.sales-table tbody tr:nth-child(odd) {
+    background-color: #242C3B;
+}
+.sales-table tbody tr:hover {
+    background-color: #151c29;
+}
+.notification {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 62px;
+}
+.notification > img {
+    cursor: pointer;
+}
+
+/*MEDIA QUERIE*/
+
+@media screen and (max-width: 645px) {
+    .active645 {
+        display: none;
+    }
+    .card {
+        padding: 32px;
+    }
+    .sales-table thead {
+        font-size: 14px;
+        line-height: 17px;
+    }
+    .sales-table tbody {
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+@media screen and (max-width: 480px) {
+    .mobile {
+        display: none;
+    }
+    .card {
+        padding: 32px 10px;
+    }
+    .sales-table thead {
+        font-size: 12px;
+        line-height: 14px;
+    }
+    .sales-table tbody {
+        font-size: 14px;
+        line-height: 17px;
+    }
+}
