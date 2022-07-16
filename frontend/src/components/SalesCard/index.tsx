@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { Sales } from "../../models/sales";
+import { BASE_URL } from "../../utils/request";
 
 import { NotificationButton } from "../NotificationButton";
 import "./styles.css";
@@ -12,11 +14,14 @@ export function SalesCard() {
     const [minDate, setMinDate] = useState(min);
     const [maxDate, setMaxDate] = useState(new Date());
 
-    useEffect(() => {
-        axios.get("http://localhost:8080/sales")
-            .then(response => console.log(response.data.content))
-    }, [])
+    const [sales, setSales] = useState<Sales[]>([]);
 
+    useEffect(() => {
+        axios.get(`${BASE_URL}/sales`)
+            .then(response => {
+                setSales(response.data.content);
+            })
+    }, [])
 
   return (
     <>
@@ -54,94 +59,21 @@ export function SalesCard() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
-              <tr>
-                <td className="active645">#001</td>
-                <td className="mobile">20/02/2022</td>
-                <td>Eduardo Marra</td>
-                <td className="active645">20</td>
-                <td className="active645">15</td>
-                <td>563.543,52</td>
-                <td className="notification">
-                  <NotificationButton />
-                </td>
-              </tr>
+              {sales.map((sale) => {
+                return (
+                    <tr key={sale.id}>
+                        <td className="active645">{sale.id}</td>
+                        <td className="mobile">{new Date(sale.date).toLocaleDateString()}</td>
+                        <td>{sale.sellerName}</td>
+                        <td className="active645">{sale.visited}</td>
+                        <td className="active645">{sale.deals}</td>
+                        <td>{sale.amount.toFixed(2)}</td>
+                        <td className="notification">
+                            <NotificationButton />
+                        </td>
+                    </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>
