@@ -73,7 +73,7 @@ export function SalesCard() {
                         <td className="active645">{sale.deals}</td>
                         <td>{sale.amount.toFixed(2)}</td>
                         <td className="notification">
-                            <NotificationButton />
+                            <NotificationButton  saleId={sale.id}/>
                         </td>
                     </tr>
                 )
