@@ -15,6 +15,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 FRONTEND:
 - ReactJS (CREATE-REACT-APP)
 - Typescript
+- Twilio - API de comunicação para SMS
 - Deploy realizado na Vercel
 
 BACKEND:
